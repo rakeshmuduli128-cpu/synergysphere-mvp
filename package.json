@@ -1,40 +1,76 @@
 {
-  "name": "vite-react-typescript-starter",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+  "name": "bcryptjs",
+  "description": "Optimized bcrypt in plain JavaScript with zero dependencies, with TypeScript support. Compatible to 'bcrypt'.",
+  "version": "3.0.2",
+  "author": "Daniel Wirtz <dcode@dcode.io>",
+  "contributors": [
+    "Shane Girish <shaneGirish@gmail.com> (https://github.com/shaneGirish)",
+    "Alex Murray <> (https://github.com/alexmurray)",
+    "Nicolas Pelletier <> (https://github.com/NicolasPelletier)",
+    "Josh Rogers <> (https://github.com/geekymole)",
+    "Noah Isaacson <noah@nisaacson.com> (https://github.com/nisaacson)"
+  ],
+  "repository": {
+    "type": "url",
+    "url": "https://github.com/dcodeIO/bcrypt.js.git"
   },
-  "dependencies": {
-    "@faker-js/faker": "^10.0.0",
-    "@types/react-beautiful-dnd": "^13.1.8",
-    "axios": "^1.9.0",
-    "clsx": "^2.1.1",
-    "framer-motion": "^12.23.12",
-    "lucide-react": "^0.511.0",
-    "react": "^19.1.0",
-    "react-beautiful-dnd": "^13.1.1",
-    "react-dom": "^19.1.0",
-    "recharts": "^3.1.2"
+  "bugs": {
+    "url": "https://github.com/dcodeIO/bcrypt.js/issues"
+  },
+  "keywords": [
+    "bcrypt",
+    "password",
+    "auth",
+    "authentication",
+    "encryption",
+    "crypt",
+    "crypto"
+  ],
+  "type": "module",
+  "main": "umd/index.js",
+  "types": "umd/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./index.d.ts",
+        "default": "./index.js"
+      },
+      "require": {
+        "types": "./umd/index.d.ts",
+        "default": "./umd/index.js"
+      }
+    }
+  },
+  "bin": {
+    "bcrypt": "bin/bcrypt"
+  },
+  "license": "BSD-3-Clause",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "lint": "prettier --check .",
+    "format": "prettier --write .",
+    "test": "npm run test:unit && npm run test:typescript",
+    "test:unit": "node tests",
+    "test:typescript": "tsc --project tests/typescript/tsconfig.esnext.json && tsc --project tests/typescript/tsconfig.nodenext.json && tsc --project tests/typescript/tsconfig.commonjs.json && tsc --project tests/typescript/tsconfig.global.json"
+  },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "types.d.ts",
+    "umd/index.js",
+    "umd/index.d.ts",
+    "umd/types.d.ts",
+    "umd/package.json",
+    "LICENSE",
+    "README.md"
+  ],
+  "browser": {
+    "crypto": false
   },
   "devDependencies": {
-    "@eslint/js": "^9.27.0",
-    "@types/react": "^19.1.5",
-    "@types/react-dom": "^19.1.5",
-    "@vitejs/plugin-react": "^4.5.0",
-    "autoprefixer": "^10.4.21",
-    "eslint": "^9.27.0",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-react-refresh": "^0.4.20",
-    "globals": "^16.2.0",
-    "postcss": "^8.4.35",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5.8.3",
-    "typescript-eslint": "^8.32.1",
-    "vite": "^6.3.5"
+    "bcrypt": "^5.1.1",
+    "esm2umd": "^0.3.1",
+    "prettier": "^3.5.0",
+    "typescript": "^5.7.3"
   }
 }
